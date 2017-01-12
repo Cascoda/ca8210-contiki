@@ -116,7 +116,7 @@ create(void)
     packetbuf_compact();
     return sizeof(struct nullmac_hdr);
   }
-  PRINTF("PNULLMAC-UT: too large header: %u\n", sizeof(struct nullmac_hdr));
+  PRINTF("PNULLMAC-UT: too large header: %lu\n", sizeof(struct nullmac_hdr));
   return FRAMER_FAILED;
 }
 /*---------------------------------------------------------------------------*/
@@ -132,7 +132,7 @@ parse(void)
     PRINTF("PNULLMAC-IN: ");
     PRINTADDR(packetbuf_addr(PACKETBUF_ADDR_SENDER));
     PRINTADDR(packetbuf_addr(PACKETBUF_ADDR_RECEIVER));
-    PRINTF("%u (%u)\n", packetbuf_datalen(), sizeof(struct nullmac_hdr));
+    PRINTF("%u (%lu)\n", packetbuf_datalen(), sizeof(struct nullmac_hdr));
 
     return sizeof(struct nullmac_hdr);
   }
